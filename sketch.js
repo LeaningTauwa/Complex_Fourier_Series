@@ -6,7 +6,7 @@ let path = [];
 let slider;
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(window.innerWidth, window.innerHeight);
   slider = createSlider(1, 50, 5);
 }
 
