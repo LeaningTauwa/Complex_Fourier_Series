@@ -1,4 +1,6 @@
 let time = 0;
+let shapex = [];
+let shapey = [];
 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -18,6 +20,19 @@ function draw() {
 
   let x = radius * cos(time);
   let y = radius * sin(time);
-  creata
-  time += 0.01;
+  shapex.push(x);
+  shapey.push(y);
+
+  stroke(255);
+  line(0,0,x,y);
+  ellipse(x, y, 8);
+
+  beginShape();
+  for (let i = 0; i < shapex.length; i++) {
+    stroke(255);
+    vertex(shapex[i]+100,shapey[i]);
+  }
+  endShape();
+
+  time -= 0.1;
 }
