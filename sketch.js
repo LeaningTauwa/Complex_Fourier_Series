@@ -8,7 +8,6 @@ var h = window.innerHeight;
 
 function setup() {
   createCanvas(w, h);
-  slider = createSlider(1, 50, 5);
 }
 
 function draw() {
