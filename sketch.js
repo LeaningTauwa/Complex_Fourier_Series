@@ -1,6 +1,5 @@
 let time = 0;
-let shapex = [];
-let shapey = [];
+let shape = [];
 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -20,19 +19,24 @@ function draw() {
 
   let x = radius * cos(time);
   let y = radius * sin(time);
-  shapex.push(x);
-  shapey.push(y);
+  shape.unshift( [x,y] );
 
   stroke(255);
   line(0,0,x,y);
-  ellipse(x, y, 8);
+  ellipse(x, y, 20);
 
   beginShape();
-  for (let i = 0; i < shapex.length; i++) {
+  for (let i = 0; i < shape.length; i++) {
     stroke(255);
-    vertex(shapex[i]+100,shapey[i]);
+    vertex(shape[i][0]+100,shape[i][1]);
   }
   endShape();
+
+  if (shape.length > 20) {
+    shape.splice(-1,2);
+  }
+
+
 
   time -= 0.1;
 }
