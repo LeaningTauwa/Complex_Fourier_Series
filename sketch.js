@@ -5,14 +5,17 @@ let path = [];
 
 let slider;
 
+var w = window.innerWidth;
+var h = window.innerHeight;
+
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(w, h);
   slider = createSlider(1, 50, 5);
 }
 
 function draw() {
   background(0);
-  translate(150, 200);
+  translate(w/2, h/2);
 
   let x = 0;
   let y = 0;
@@ -38,8 +41,8 @@ function draw() {
   wave.unshift(y);
 
 
-  translate(200, 0);
-  line(x - 200, y, 0, wave[0]);
+  translate(h/2, 0);
+  line(x - h/2, y, 0, wave[0]);
   beginShape();
   noFill();
   for (let i = 0; i < wave.length; i++) {
@@ -50,7 +53,7 @@ function draw() {
   time += 0.05;
 
 
-  if (wave.length > 250) {
+  if (wave.length > w) {
     wave.pop();
   }
 }
