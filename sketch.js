@@ -20,25 +20,26 @@ function draw() {
   let x = 0;
   let y = 0;
   
-  for (let i = 0; i<4; i++) {
+  for (let i = 0; i<10; i++) {
     let prevx = x;
     let prevy = y;
 
-    let n = 2*n+1;
+    let n = i * 2 + 1;
+    let radius = h/6 * (4 / (n * PI));
+    x += radius * cos(n * time);
+    y += radius * sin(n * time);
 
-    let radius = h/6 * ( 4 / ( n * PI ));
-    let x += radius * cos(n * time);
-    let y += radius * sin(n * time);
-
-    shape.unshift( [x,y] );
-    
-    stroke(255,100);
+    stroke(255, 100);
     noFill();
     ellipse(prevx, prevy, radius * 2);
+
+    //fill(255);
     stroke(255);
-    line(prevx,prevy,x,y);
+    line(prevx, prevy, x, y);
+    //ellipse(x, y, 8);
     
   }
+  
   beginShape();
   for (let i = 0; i < shape.length; i++) {
     stroke(255);
@@ -50,5 +51,5 @@ function draw() {
     shape.splice(-1,2);
   }
 
-  time -= 0.1;
+  time -= 0.01;
 }
