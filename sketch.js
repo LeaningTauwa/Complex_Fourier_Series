@@ -11,18 +11,20 @@ var pathXMLData = svg.getElementsByTagName("path")[0].getAttribute("d");
 
 var w = window.innerWidth;
 var h = window.innerHeight;
-if (w < h) {
-  var dim = w;
-} else {
-  var dim = h;
-}
-
 
 function setup() {
   createCanvas(w, h);
 }
 
 function draw() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  if (w < h) {
+    var dim = w;
+  } else {
+    var dim = h;
+  }
+
   background(0);
   translate(w/2, h/2);
   var radius = dim/8;
