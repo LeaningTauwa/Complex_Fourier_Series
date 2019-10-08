@@ -6,19 +6,21 @@ var text = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="ht
 var parser = new DOMParser();
 var svg = parser.parseFromString(text,"text/xml");
 var path = svg.getElementsByTagName("path")[0].getAttribute("d");
-var pathLength = path.getTotalLength();
+//var pathLength = path.getTotalLength();
+alert(path);
 
 
+var w = window.innerWidth;
+var h = window.innerHeight;
+if (w < h) {
+  var dim = w;
+} else {
+  var dim = h;
+}
 
 function draw() {
-  var w = window.innerWidth;
-  var h = window.innerHeight;
   createCanvas(w, h);
-  if (w < h) {
-    var dim = w;
-  } else {
-    var dim = h;
-  }
+
   background(0);
 
   translate(w/2, h/2);
